@@ -1,5 +1,3 @@
-
-
 document.getElementById('download-resume').addEventListener('click', function() {
     window.open('path/to/your/resume.pdf', '_blank');
 });

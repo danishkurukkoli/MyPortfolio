@@ -1,10 +1,25 @@
-
+@font-face {
+    font-family: 'Amber Taste';
+    src: url('fonts/AmberTaste.ttf') format('truetype');
+}
 
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    line-height: 1.6;
+    background-color: #042b0f; /* Setting the background color for the entire webpage */
+    color: white; /* Setting the default text color to white */
+}
+
+h1, h2, h3, h4, h5, h6, p, a, li, label, input, textarea, button {
+    color: white; /* Ensuring all text elements have white color */
+}
+
+.name {
+    font-family: 'Amber Taste', cursive;
+    color: #ffbf00; /* Amber color for name */
 }
 
 .container {
@@ -65,6 +80,7 @@ form input, form textarea, form button {
     margin-bottom: 15px;
     padding: 10px;
     font-size: 16px;
+    color: black; /* To ensure readability of input text, we keep it black */
 }
 
 footer {
