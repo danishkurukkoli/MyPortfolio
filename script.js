@@ -1,5 +1,5 @@
 document.getElementById('download-resume').addEventListener('click', function() {
-    window.open('path/to/your/resume.pdf', '_blank');
+    window.open('resume.pdf', '_blank');
 });
 
 document.getElementById('contact-form').addEventListener('submit', function(event) {
