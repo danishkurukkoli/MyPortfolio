@@ -6,11 +6,13 @@
     <title>Danish Mohammed - Portfolio</title>
     <link rel="stylesheet" href="syle.css">
 </head>
-<body style="background-color: #042b0f;">
+<body>
     <header>
         <div class="container">
             <img src="profile.jpg" alt="Profile Picture" class="profile-pic">
-            <h1>Danish Mohammed</h1>
+            <div class="typewriter">
+                <h1>DANISH   MOHAMMED</h1>
+              </div>
             <p>AI/ML Developer | Researcher | Tech Enthusiast</p>
             <nav>
                 <ul>
@@ -26,40 +28,52 @@
     <main>
         <section id="about">
             <div class="container">
-                <h2>About Me</h2>
-                <p>Dedicated and motivated AIML student with a strong passion for artificial intelligence, machine learning, and data science...</p>
+                <h2 class="project-heading">About Me</h2>
+                <ul>
+                    <li>Passionate about artificial intelligence and machine learning.</li>
+                    <li>Constantly exploring AI technologies and their real-world applications.</li>
+                    <li>Enjoys diverse interests from philosophy to culinary adventures.</li>
+                    <li>
+                        <a href="" class="typewrite" data-period="2000" data-type='[ "I love playing chess", "I am a Trend tracker", "I Love Design.", "I Love to Develop." ]'>
+                            <span class="wrap"></span>
+                        </a>
+                    </li>
+                </ul>
             </div>
         </section>
-
+        
+        
+        
         <section id="projects">
             <div class="container">
-                <h2>Projects</h2>
-                <div class="project">
-                    <h3>Smile Detection Using Python</h3>
-                    <p>An AI model that detects a smile and takes a selfie using OpenCV and Python. Learned how to create an AI model using Python programming.</p>
+                <h2 class="project-heading">Projects</h2>
+                <div class="project" onclick="window.location.href='https://dnshkkl.github.io/menu/'">
+                    <h3>Website for a cafe</h3>
+                    <p>Spearheaded the development of a dynamic café website, integrating essential features such as menu displays and<br> location mapping to streamline customer accessibility and enhance the overall dining experience</p>
                 </div>
-                <div class="project">
+                <div class="project" onclick="window.location.href='https://colab.research.google.com/drive/1clBTGjZpJo7uylPtH3JUfYDGceFX3_9m?usp=sharing2'">
+                    <h3>Making career choices and AI based Counselling</h3>
+                    <p>A system that collects user requirements and generates random course recommendations, providing personalized educational pathways for users.</p>
+                </div>
+                <div class="project" onclick="window.location.href='https://colab.research.google.com/drive/1_W8Au7RBwHrfQqJK5a1wmXK2pZ7-OEcW?usp=sharing'">
                     <h3>Build a Sorting, Categorization and Tagging System</h3>
-                    <p>A system that can sort, categorize, and tag datasets using Python.</p>
-                </div>
-                <div class="project">
-                    <h3>Student Recommendation System</h3>
-                    <p> Created a recommendation system for an educational platform designed for students.</p>
+                    <p>A system that can sort, categorize, and tag datasets using Python, providing a structured approach to managing large amounts of data efficiently.</p>
                 </div>
             </div>
         </section>
+        
 
         <section id="resume">
             <div class="container">
-                <h2>Resume</h2>
-                <button id="download-resume" style="color: black;">Download Resume</button>
+                <h2 class="project-heading"> Resume</h2>
+                <button id="download-resume" >Download Resume</button>
             </div>
         </section>
 
         <section id="contact">
             <div class="container">
-                <h2>Contact</h2>
-                <form id="contact-form">
+                <h2 class="project-heading">Contact</h2>
+                <form action="/contact" method="POST">
                     <label for="name">Name:</label>
                     <input type="text" id="name" name="name" required>
                     <label for="email">Email:</label>

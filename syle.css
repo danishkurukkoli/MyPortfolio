@@ -1,36 +1,29 @@
 
-@font-face {
-    font-family: 'Amber Taste';
-    src: url('fonts/AmberTaste.ttf') format('truetype');
-}
-
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     line-height: 1.6;
-    background-color: #042b0f; 
-    color: white; 
+    background-color: #112d32; 
 }
 
-h1, h2, h3, h4, h5, h6, p, a, li, label, input, textarea, button {
-    color: white; 
-}
 
-.name {
-    font-family: 'Amber Taste', cursive;
-    color: #ffbf00; 
-}
+
 
 .container {
     width: 80%;
-    margin: 0 auto;
+    height: auto;
+    margin: 20px auto;
+    padding: 50px;
+    border: 1px solid black; /* Border color */
+    border-radius: 10px; /* Rounded corners */
+    background-color:#4f4a41 ;
 }
 
 header {
-    background: #333;
-    color: white;
+    color: aliceblue;
+    background-color: #112d32;
     padding: 20px 0;
     text-align: center;
 }
@@ -51,25 +44,38 @@ nav ul li {
 }
 
 nav ul li a {
-    color: white;
+    color: rgb(0, 0, 0);
     text-decoration: none;
 }
-#download-resume{
+
+#download-resume {
     width: 250px;
     height: 50px;
-
+    color: azure;
+    background: black;
+    margin-left: 485px;
+ 
+    
 }
+
 section {
     padding: 60px 0;
+}
+.project-heading{
+    text-align: center;
 }
 
 .project {
     margin-bottom: 30px;
+    background-color: #6e6658;
+    border-radius: 10px;
+    width: 100%;
+    padding: 20px;
 }
 
 .project img {
     width: 100%;
-    height: auto;
+    height: 90px;
 }
 
 form {
@@ -89,9 +95,38 @@ form input, form textarea, form button {
 }
 
 footer {
-    background: #333;
-    color: white;
+    background: white;
+    color: rgb(5, 0, 0);
     text-align: center;
     padding: 20px 0;
     margin-top: 40px;
 }
+
+.typewriter h1 {
+    font-family: candara;
+    overflow: hidden; /* Ensures the content is not revealed until the animation */
+    border-right: .15em solid rgb(55, 52, 48); /* The typwriter cursor */
+    white-space: nowrap; /* Keeps the content on a single line */
+    margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+    letter-spacing: .15em; /* Adjust as needed */
+    animation: 
+      typing 2.5s steps(30, end),
+      blink-caret .5s step-end infinite;
+  }
+  
+  /* The typing effect */
+  @keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+  }
+  
+  /* The typewriter cursor effect */
+  @keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: rgb(11, 11, 10) }
+  }
+  a.typewrite {
+    text-decoration: none;
+    color:bl;
+}
+
