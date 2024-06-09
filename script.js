@@ -1,68 +1,70 @@
-document.getElementById('download-resume').addEventListener('click', function() {
-    window.open('resume.pdf', '_blank');
-});
+function openPDF() {
+    const pdfUrl = 'resume.pdf';
+    window.open(pdfUrl, '_blank');
+}
 
-
-var TxtType = function(el, toRotate, period) {
-    this.toRotate = JSON.parse(toRotate); // Parse the JSON string
-    this.el = el;
-    this.loopNum = 0;
-    this.period = parseInt(period, 10) || 2000;
-    this.txt = '';
-    this.tick();
-    this.isDeleting = false;
-};
-
-TxtType.prototype.tick = function() {
-    var i = this.loopNum % this.toRotate.length;
-    var fullTxt = this.toRotate[i];
-
-    if (this.isDeleting) {
-        this.txt = fullTxt.substring(0, this.txt.length - 1);
-    } else {
-        this.txt = fullTxt.substring(0, this.txt.length + 1);
-    }
-
-    this.el.innerHTML = '<span class="wrap">' + this.txt + '</span>';
-
-    var that = this;
-    var delta = 200 - Math.random() * 100;
-
-    if (this.isDeleting) {
-        delta /= 2;
-    }
-
-    if (!this.isDeleting && this.txt === fullTxt) {
-        delta = this.period;
-        this.isDeleting = true;
-    } else if (this.isDeleting && this.txt === '') {
+document.addEventListener('DOMContentLoaded', function(event) {
+    // Typing Animation
+    var TxtType = function(el, toRotate, period) {
+        this.toRotate = JSON.parse(toRotate); // Parse the JSON string
+        this.el = el;
+        this.loopNum = 0;
+        this.period = parseInt(period, 10) || 2000;
+        this.txt = '';
+        this.tick();
         this.isDeleting = false;
-        this.loopNum++;
-        delta = 500;
-    }
-
-    setTimeout(function() {
-        that.tick();
-    }, delta);
-};
-
-window.onload = function() {
-    var elements = document.getElementsByClassName('typewrite');
-    for (var i = 0; i < elements.length; i++) {
-        var toRotate = elements[i].getAttribute('data-type');
-        var period = elements[i].getAttribute('data-period');
-        if (toRotate) {
-            new TxtType(elements[i], toRotate, period); // Pass toRotate without JSON.parse
+    };
+    
+    TxtType.prototype.tick = function() {
+        var i = this.loopNum % this.toRotate.length;
+        var fullTxt = this.toRotate[i];
+    
+        if (this.isDeleting) {
+            this.txt = fullTxt.substring(0, this.txt.length - 1);
+        } else {
+            this.txt = fullTxt.substring(0, this.txt.length + 1);
         }
-    }
-    // INJECT CSS
-    var css = document.createElement("style");
-    css.type = "text/css";
-    css.innerHTML = ".typewrite > .wrap { border-right: 0.08em solid #fff}";
-    document.body.appendChild(css);
-};
-
-document.addEventListener("DOMContentLoaded", function() {
+    
+        this.el.innerHTML = '<span class="wrap">' + this.txt + '</span>';
+    
+        var that = this;
+        var delta = 200 - Math.random() * 100;
+    
+        if (this.isDeleting) {
+            delta /= 2;
+        }
+    
+        if (!this.isDeleting && this.txt === fullTxt) {
+            delta = this.period;
+            this.isDeleting = true;
+        } else if (this.isDeleting && this.txt === '') {
+            this.isDeleting = false;
+            this.loopNum++;
+            delta = 500;
+        }
+    
+        setTimeout(function() {
+            that.tick();
+        }, delta);
+    };
+    
+    window.onload = function() {
+        var elements = document.getElementsByClassName('typewrite');
+        for (var i = 0; i < elements.length; i++) {
+            var toRotate = elements[i].getAttribute('data-type');
+            var period = elements[i].getAttribute('data-period');
+            if (toRotate) {
+                new TxtType(elements[i], toRotate, period); // Pass toRotate without JSON.parse
+            }
+        }
+        // INJECT CSS
+        var css = document.createElement("style");
+        css.type = "text/css";
+        css.innerHTML = ".typewrite > .wrap { border-right: 0.08em solid #fff}";
+        document.body.appendChild(css);
+    };
+    
+    // Project Hover Animation
     const projects = document.querySelectorAll(".project");
     projects.forEach(project => {
         project.addEventListener("mouseenter", function() {
@@ -72,4 +74,26 @@ document.addEventListener("DOMContentLoaded", function() {
             this.style.transform = "scale(1)";
         });
     });
+
+    // Typewriter Animation for Skills
+    var dataText = ["AI enthusiast.", "Full Service.", "Webdesign.", "machinelearning."];
+    function typeWriter(text, i, fnCallback) {
+        if (i < text.length) {
+            document.querySelector(".type-skills").innerHTML = text.substring(0, i + 1) + '<span class="typewriter-caret" aria-hidden="true"></span>';
+            setTimeout(function() {
+                typeWriter(text, i + 1, fnCallback);
+            }, 100);
+        } else if (typeof fnCallback === 'function') {
+            setTimeout(fnCallback, 700);
+        }
+    }
+    function StartTextAnimation(i) {
+        if (i >= dataText.length) {
+            i = 0; // Reset index to 0 to loop back to the beginning
+        }
+        typeWriter(dataText[i], 0, function() {
+            StartTextAnimation(i + 1);
+        });
+    }
+    StartTextAnimation(0);
 });
