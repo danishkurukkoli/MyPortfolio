@@ -470,18 +470,18 @@ footer {
   bottom: 0;
 }
 
-/* Adjust the .login-box positioning */
 .login-box {
-  position: relative;
+  position: relative;  
+  bottom: 0; 
+  top: 50%;
   left: 50%;
   width: 400px;
   padding: 40px;
-  transform: translateX(-50%); /* Center horizontally */
+  transform: translate(-50%, 0);
   background: rgba(24, 20, 20, 0.987);
   box-sizing: border-box;
   box-shadow: 0 15px 25px rgba(0,0,0,.6);
   border-radius: 10px;
-  bottom: 10px;
 }
 
 .login-box .user-box {
@@ -501,7 +501,7 @@ footer {
 }
 
 .login-box .user-box label {
-  position: relative;
+  position: absolute;
   top: 0;
   left: 0;
   padding: 10px 0;
@@ -530,7 +530,7 @@ footer {
   overflow: hidden;
   transition: .5s;
   margin-top: 40px;
-  letter-spacing: 4px;
+  letter-spacing: 4px
 }
 
 .login-box a:hover {
@@ -552,7 +552,8 @@ footer {
   0% {
     left: -100%;
   }
-  50%, 100% {
+
+  50%,100% {
     left: 100%;
   }
 }
@@ -583,11 +584,15 @@ footer {
   border-right: .05em solid;
   animation: caret 1s steps(1) infinite;
 }
-@keyframes caret {
-  50% {
-    border-color: transparent;
+@media (max-width: 768px) {
+  .typewrite > .wrap {
+    font-size: 1.2rem;  /* Adjust font size for smaller screens */
+  }
+  .typewrite {
+    animation: typing 2.5s steps(30, end), blink-caret .75s step-end infinite; /* Adjust animation speed for smaller screens */
   }
 }
+
 .titlename{
   font-size: 60px;
 
