@@ -181,20 +181,24 @@
         <section id="contact">
             <div class="login-box">
               <h2>Contact</h2>
-                <form>
-                    <div class="user-box">
-                      <input type="text" name="" required="">
-                      <label>Name</label>
-                    </div>
-                    <div class="user-box">
-                      <input type="password" name="" required="">
-                      <label>Email</label>
-                    </div><center>
-                    <a href="#">
-                           SEND
-                       <span></span>
-                    </a></center>
-                  </form>
+              <form action="http://127.0.0.1:5000/contact" method="POST">
+
+                <div class="user-box">
+                    <input type="text" name="name" required="">
+                    <label>Name</label>
+                </div>
+                <div class="user-box">
+                    <input type="email" name="email" required="">
+                    <label>Email</label>
+                </div>
+                <center>
+                    <button type="submit" class="submit-btn">
+                        SEND
+                        <span></span>
+                    </button>
+                </center>
+            </form>
+            
                 
             </div>
         </section>
