@@ -76,7 +76,7 @@ document.addEventListener('DOMContentLoaded', function(event) {
     });
 
     // Typewriter Animation for Skills
-    var dataText = ["AI enthusiast.", "Full Service.", "Webdesign.", "machinelearning."];
+    var dataText = ["AI enthusiast.", "Webdesign.", "Machinelearning."];
     function typeWriter(text, i, fnCallback) {
         if (i < text.length) {
             document.querySelector(".type-skills").innerHTML = text.substring(0, i + 1) + '<span class="typewriter-caret" aria-hidden="true"></span>';
