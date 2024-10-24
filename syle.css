@@ -475,13 +475,39 @@ section#resume {
 
 
 
-.heading{
+.heading {
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  font-size: 60px;
+  font-size: 60px; /* Default for larger screens */
   margin-bottom: 80px;
   text-align: center;
   margin-top: 60px;
 }
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .heading {
+    font-size: 48px; /* Adjust font size for tablets and medium screens */
+    margin-bottom: 60px;
+    margin-top: 50px;
+  }
+}
+
+@media (max-width: 768px) {
+  .heading {
+    font-size: 36px; /* Adjust for smaller tablets */
+    margin-bottom: 40px;
+    margin-top: 40px;
+  }
+}
+
+@media (max-width: 480px) {
+  .heading {
+    font-size: 28px; /* Adjust for mobile screens */
+    margin-bottom: 30px;
+    margin-top: 30px;
+  }
+}
+
 
 
 .typewriter-caret {
@@ -549,6 +575,7 @@ section#resume {
     background-position: 0% 50%;
   }
 }
+/* Footer */
 footer {
   text-align: center;
   background-color: #000000;
@@ -558,24 +585,45 @@ footer {
   bottom: 0;
 }
 
+/* Form container */
 .form-container {
   display: flex;
-  justify-content: center; /* Center horizontally */
-  align-items: center; /* Optional, to vertically center if needed */
+  justify-content: center;
   margin: 0 auto;
-  width: 30%; /* Full width of the container */
+  width: 30%; /* Default width for larger screens */
+  max-width: 600px; /* Limit form width on larger screens */
+  padding: 16px;
 }
-.form-container.form {
+
+/* Adjust the form elements for mobile screens */
+@media (max-width: 768px) {
+  .form-container {
+    width: 80%; /* Make form wider on smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .form-container {
+    width: 80%; /* Full width for very small screens */
+    padding: 8px; /* Reduce padding on smaller screens */
+  }
+
+  .form-container .form-submit-btn {
+    width: 80%; /* Full-width button on small screens */
+  }
+}
+
+/* Form elements */
+.form-container .form {
   display: flex;
   flex-direction: column;
   gap: 20px;
   width: 100%;
-  max-width: 400px; /* Set a max-width to prevent stretching */
-  padding: 16px; /* Optional padding */
+  max-width: 400px; /* Limit form width on larger screens */
+  padding: 16px;
 }
 
-
-
+/* Form group */
 .form-container .form-group {
   display: flex;
   flex-direction: column;
@@ -590,52 +638,43 @@ footer {
   font-size: 12px;
 }
 
-.form-container .form-group input {
-  width: 100%;
-  padding: 12px 16px;
-  border-radius: 8px;
-  color: #fff;
-  font-family: inherit;
-  background-color: transparent;
-  border: 1px solid #414141;
-}
-
+.form-container .form-group input,
 .form-container .form-group textarea {
   width: 100%;
   padding: 12px 16px;
   border-radius: 8px;
-  resize: none;
   color: #fff;
-  height: 96px;
-  border: 1px solid #414141;
   background-color: transparent;
+  border: 1px solid #414141;
   font-family: inherit;
-  
 }
 
-.form-container .form-group input::placeholder {
+.form-container .form-group textarea {
+  resize: none;
+  height: 96px;
+}
+
+.form-container .form-group input::placeholder,
+.form-container .form-group textarea::placeholder {
   opacity: 0.5;
 }
 
-.form-container .form-group input:focus {
-  outline: none;
-  border-color: #e81cff;
-}
-
+.form-container .form-group input:focus,
 .form-container .form-group textarea:focus {
   outline: none;
   border-color: #e81cff;
 }
 
+/* Submit button */
 .form-container .form-submit-btn {
   display: flex;
-  align-items: center; /* Center the button text vertically */
-  justify-content: center; /* Center the content inside the button */
-  align-self: center; /* Center the button in the form */
+  align-items: center;
+  justify-content: center;
+  align-self: center;
   font-family: inherit;
   color: #717171;
   font-weight: 600;
-  width: 40%;
+  width: 40%; /* Default width */
   background: #313131;
   border: 1px solid #414141;
   padding: 12px 16px;
@@ -644,7 +683,6 @@ footer {
   margin-top: 8px;
   cursor: pointer;
   border-radius: 6px;
-  align-items: center;
 }
 
 .form-container .form-submit-btn:hover {
@@ -654,4 +692,17 @@ footer {
 
 .form-container .form-submit-btn:active {
   scale: 0.95;
+}
+
+/* Responsive submit button */
+@media (max-width: 768px) {
+  .form-container .form-submit-btn {
+    width: 50%; /* Wider button on smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  .form-container .form-submit-btn {
+    width: 80%; /* Full-width button on mobile */
+  }
 }
