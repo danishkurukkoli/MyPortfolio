@@ -472,92 +472,8 @@ section#resume {
 /* Other existing styles */
 
 /* Ensure footer is at the bottom */
-footer {
-  text-align: center;
-  background-color: #000000;
-  width: 100%;
-  height: 220px;
-  position: relative; /* Ensure footer is at the bottom of the page content */
-  bottom: 0;
-}
 
-.login-box {
-  position: relative;  
-  bottom: 0; 
-  top: 50%;
-  left: 50%;
-  width: 400px;
-  padding: 40px;
-  transform: translate(-50%, 0);
-  background: rgba(24, 20, 20, 0.987);
-  box-sizing: border-box;
-  box-shadow: 0 15px 25px rgba(0,0,0,.6);
-  border-radius: 10px;
-}
 
-.login-box .user-box {
-  position: relative;
-}
-
-.login-box .user-box input {
-  width: 100%;
-  padding: 10px 0;
-  font-size: 16px;
-  color: #fff;
-  margin-bottom: 30px;
-  border: none;
-  border-bottom: 1px solid #fff;
-  outline: none;
-  background: transparent;
-}
-
-.login-box .user-box label {
-  position: absolute;
-  top: 0;
-  left: 0;
-  padding: 10px 0;
-  font-size: 16px;
-  color: #fff;
-  pointer-events: none;
-  transition: .5s;
-}
-
-.login-box .user-box input:focus ~ label,
-.login-box .user-box input:valid ~ label {
-  top: -20px;
-  left: 0;
-  color: #bdb8b8;
-  font-size: 12px;
-}
-
-.login-box form a {
-  position: relative;
-  display: inline-block;
-  padding: 10px 20px;
-  color: #ffffff;
-  font-size: 16px;
-  text-decoration: none;
-  text-transform: uppercase;
-  overflow: hidden;
-  transition: .5s;
-  margin-top: 40px;
-  letter-spacing: 4px
-}
-
-.login-box a:hover {
-  background: #03f40f;
-  color: #fff;
-  border-radius: 5px;
-  box-shadow: 0 0 5px #03f40f,
-              0 0 25px #03f40f,
-              0 0 50px #03f40f,
-              0 0 100px #03f40f;
-}
-
-.login-box a span {
-  position: absolute;
-  display: block;
-}
 
 .heading{
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
@@ -601,48 +517,141 @@ footer {
     font-size: 28px; /* Even smaller font for mobile phones */
   }
 }
-.submit-btn {
-  display: inline-block;
-  position: relative;
-  padding: 10px 20px;
-  color: #fff;
-  text-decoration: none;
-  text-transform: uppercase;
-  transition: 0.5s;
-  letter-spacing: 4px;
-  font-size: 16px;
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
+/* From Uiverse.io by omriluz */ 
+.form-container {
+  width: 400px;
+  background: linear-gradient(#212121, #212121) padding-box,
+              linear-gradient(145deg, transparent 35%,#e81cff, #40c9ff) border-box;
+  border: 2px solid transparent;
+  padding: 32px 24px;
+  font-size: 14px;
+  font-family: inherit;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  box-sizing: border-box;
+  border-radius: 16px;
+  background-size: 200% 100%;
+  animation: gradient 5s ease infinite;
 }
 
-.submit-btn:hover {
-  background-color: #3fd819;
-  color: #fff;
-}
-
-.submit-btn span {
-  position: absolute;
-  display: block;
-}
-
-.submit-btn span:nth-child(1) {
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, #07f757);
-  animation: btn-anim1 1s linear infinite;
-}
-
-@keyframes btn-anim1 {
+@keyframes gradient {
   0% {
-      left: -100%;
+    background-position: 0% 50%;
   }
-  50%,100% {
-      left: 100%;
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
   }
 }
+footer {
+  text-align: center;
+  background-color: #000000;
+  width: 100%;
+  height: 220px;
+  position: relative; /* Ensure footer is at the bottom of the page content */
+  bottom: 0;
+}
 
-/* Add similar animations for other span elements if needed */
+.form-container {
+  display: flex;
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Optional, to vertically center if needed */
+  margin: 0 auto;
+  width: 30%; /* Full width of the container */
+}
+.form-container.form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  max-width: 400px; /* Set a max-width to prevent stretching */
+  padding: 16px; /* Optional padding */
+}
 
+
+
+.form-container .form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.form-container .form-group label {
+  display: block;
+  margin-bottom: 5px;
+  color: #717171;
+  font-weight: 600;
+  font-size: 12px;
+}
+
+.form-container .form-group input {
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: 8px;
+  color: #fff;
+  font-family: inherit;
+  background-color: transparent;
+  border: 1px solid #414141;
+}
+
+.form-container .form-group textarea {
+  width: 100%;
+  padding: 12px 16px;
+  border-radius: 8px;
+  resize: none;
+  color: #fff;
+  height: 96px;
+  border: 1px solid #414141;
+  background-color: transparent;
+  font-family: inherit;
+  
+}
+
+.form-container .form-group input::placeholder {
+  opacity: 0.5;
+}
+
+.form-container .form-group input:focus {
+  outline: none;
+  border-color: #e81cff;
+}
+
+.form-container .form-group textarea:focus {
+  outline: none;
+  border-color: #e81cff;
+}
+
+.form-container .form-submit-btn {
+  display: flex;
+  align-items: center; /* Center the button text vertically */
+  justify-content: center; /* Center the content inside the button */
+  align-self: center; /* Center the button in the form */
+  font-family: inherit;
+  color: #717171;
+  font-weight: 600;
+  width: 40%;
+  background: #313131;
+  border: 1px solid #414141;
+  padding: 12px 16px;
+  font-size: inherit;
+  gap: 8px;
+  margin-top: 8px;
+  cursor: pointer;
+  border-radius: 6px;
+  align-items: center;
+}
+
+.form-container .form-submit-btn:hover {
+  background-color: #fff;
+  border-color: #fff;
+}
+
+.form-container .form-submit-btn:active {
+  scale: 0.95;
+}
